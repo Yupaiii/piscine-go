@@ -2,29 +2,29 @@ package piscine
 
 import "github.com/01-edu/z01"
 
-func PrintNum(num int) {
-	i := '0'
-	if num == 0 {
-		z01.PrintRune('0')
-		return
-	}
-	for j := 1; j <= num%10; j++ {
-		i++
-	}
-	for j := -1; j >= num%10; j-- {
-		i++
-	}
-	if num/10 != 0 {
-		PrintNum(num / 10)
-	}
-	z01.PrintRune(i)
-	return
-}
-
-func PrintNbr(n int) {
-
-	if n < 0 {
+func PrintNbr(a int) {
+	if a < 0 {
 		z01.PrintRune('-')
 	}
-	PrintNum(n)
+	SetNbr(a)
+}
+
+func SetNbr(a int) {
+	b := '0'
+	if a == 0 {
+		z01.PrintRune(b)
+		return
+	}
+	for c := 1; c <= a%10; c++ {
+		b++
+	}
+	for c := -1; c >= a%10; c-- {
+		b++
+	}
+	if a/10 != 0 {
+		SetNbr(a / 10)
+	}
+	z01.PrintRune(b)
+
+	return
 }
